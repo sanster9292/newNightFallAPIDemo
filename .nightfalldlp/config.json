@@ -1,23 +1,18 @@
-name: nightfalldlp
-on:
-  push:
-    branches:
-      - master
-  pull_request:
-jobs:
-  run-nightfalldlp:
-    name: nightfalldlp
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo Action
-        uses: actions/checkout@v2
-
-      - name: nightfallDLP action step
-        uses: nightfallai/nightfall_dlp_action@v2.1.0
-        env:
-          NIGHTFALL_API_KEY: ${{ secrets.NIGHTFALL_API_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          EVENT_BEFORE: ${{ github.event.before }}
-    permissions:
-      checks: write
-      contents: read
+{
+  "detectors": [
+    "CREDIT_CARD_NUMBER",
+    "PHONE_NUMBER",
+    "API_KEY",
+    "CRYPTOGRAPHIC_KEY",
+    "RANDOMLY_GENERATED_TOKEN",
+    "US_SOCIAL_SECURITY_NUMBER",
+    "AMERICAN_BANKERS_CUSIP_ID",
+    "US_BANK_ROUTING_MICR",
+    "ICD9_CODE",
+    "ICD10_CODE",
+    "US_DRIVERS_LICENSE_NUMBER",
+    "US_PASSPORT",
+    "EMAIL_ADDRESS",
+    "IP_ADDRESS"
+  ]
+}
